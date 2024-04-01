@@ -1,22 +1,24 @@
-// Function to check if a number is prime
-function isPrime(num) {
-    // Prime numbers are greater than 1
-    if (num <= 1) return false;
-    
-    // Check if the number is divisible by any number up to its square root
-    // If it is, then it's not a prime number
-    for (let i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i === 0) {
-            return false;
-        }
+//how to calc prime nubers
+function primeNumbers(numberList) {
+    primes = []// to allow the numbers are place when the code finds prime numbers
+    for (let no of numberList) {
+      if (isPrime(no)) {
+        primes.push(no);
+  
+      }
     }
-    
-    // If no divisor was found, the number is prime
+    return primes;
+  }
+  function isPrime(no) {
+    if (no < 2) return false; // 1 or less are not prime
+    for (let i = 2; i <= Math.sqrt(no); i++) {//squre root to check whether a num is evenly divided by the num
+      if (no % i == 0) 
+      return false;
+    }
     return true;
-}
-
-// Function to filter prime numbers from an array
-function filterPrimes(arr) {
-    // Use the filter method to create a new array with only prime numbers
-    return arr.filter(num => isPrime(num));
-}
+  }
+  const numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];//the above code should give me only prime no when loged
+  const primeResults = primeNumbers(numberList);
+  
+  
+  console.log(primeResults);  // the output should be only prime numbers in the array
